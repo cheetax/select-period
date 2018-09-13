@@ -2,7 +2,7 @@ var path = require('path');
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-  //entry: './src/index.js',
+  entry: './src/index.js',
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2'
@@ -11,8 +11,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "ch-calendar.css",
-      chunkFilename: "ch-calendar.css"
+      filename: "select-period.css",
+      chunkFilename: "select-period.css"
     })
   ],
   module: {

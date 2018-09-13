@@ -1,16 +1,13 @@
 
 import { Modal } from './Modal'
-import { BtnCalendar } from './BtnSpin'
-import { SvgCalendar } from './Svg'
 import React, { Component } from 'react';
-import CalendarCore from './CalendarCore';
 
-class Calendar extends Component {
+class SelectPeriod extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            openModalCalendar: !props.toNotClose && !!props.isActive || false,
+            openModalCalendar: !!props.isActive || false,
         }
     }
 
@@ -18,8 +15,9 @@ class Calendar extends Component {
         nextProps.isActive !== undefined && this.setState({ openModalCalendar: !!nextProps.isActive })
     }
 
-    _ModalCalendar = () =>
-        <ModalCalendar
+    
+    _ModalPeriod = () => <div style={{ position: 'relative', color: 'initial' }} >
+        <Modal
             {...this.props}
             openModal={this.state.openModalCalendar}
             onSelect={(date) => {
@@ -32,20 +30,11 @@ class Calendar extends Component {
                 !this.props.isActive && this.setState({ openModalCalendar: false })
             }}
         />
-
-    _btnCalendar = () => <div style={{ position: 'relative', color: 'initial' }} >
-        {this._ModalCalendar()}
-        {this.props.isButtonActive && <BtnCalendar onClick={() => this.setState({
-            openModalCalendar: !this.state.openModalCalendar
-        })}
-        ><SvgCalendar /></BtnCalendar>}
     </div>
 
     render() {
-        return ((this.props.isModal) ?
-            <div style={{ display: 'flex', justifyContent: 'center' }}>{this._btnCalendar()}</div> :
-            !!this.props.isActive && <div><CalendarCore {...this.props} /></div>)
+        return <div style={{ display: 'flex', justifyContent: 'center' }}>{this._ModalPeriod()}</div>
     }
 }
 
-export default Calendar;
+export default SelectPeriod;

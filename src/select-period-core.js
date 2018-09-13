@@ -6,7 +6,7 @@ import { YearField, MonthField, QuarterField, DateField } from 'material-inputfi
 import 'react-web-tabs/dist/react-web-tabs.css';
 import './SetPeriod.css';
 import 'material-inputfield/dist/material-inputfield.css';
-c
+
 
 class SelectPeriodCore extends Component {
 
@@ -17,14 +17,6 @@ class SelectPeriodCore extends Component {
             dateFrom: props.dateFrom || new Date(),
             dateTo: props.dateTo || new Date()
         }
-    }
-
-    componentWillMount() {
-
-    }
-
-    componentDidUpdate(prevProps) {
-
     }
 
     _onChange = (event) => {

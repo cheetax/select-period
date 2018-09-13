@@ -1,5 +1,5 @@
-import Calendar from "./Calendar";
+import SelectPeriod from "./select-period";
 
 export {
-    Calendar,
+    SelectPeriod,
 };

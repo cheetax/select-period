@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
+    "start": "react-scripts start",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -47,6 +47,11 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
-    "date-fns": "^1.29.0"
+    "ch-calendar": "^0.10.6",
+    "date-fns": "^1.29.0",
+    "material-inputfield": "^0.6.6",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-web-tabs": "^1.0.1"
   }
 }
