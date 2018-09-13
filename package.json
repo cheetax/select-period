@@ -25,6 +25,10 @@
   "files": [
     "dist"
   ],
+  "peerDependencies": {
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -50,8 +54,6 @@
     "ch-calendar": "^0.10.6",
     "date-fns": "^1.29.0",
     "material-inputfield": "^0.6.6",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
     "react-web-tabs": "^1.0.1"
   }
 }
