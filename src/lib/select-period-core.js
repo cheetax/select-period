@@ -4,7 +4,7 @@ import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { YearField, MonthField, QuarterField, DateField } from 'material-inputfield';
 
 import 'react-web-tabs/dist/react-web-tabs.css';
-import './SetPeriod.css';
+
 import 'material-inputfield/dist/material-inputfield.css';
 
 
@@ -48,20 +48,20 @@ class SelectPeriodCore extends Component {
         const dateFrom = this.state.dateFrom,
             dateTo = this.state.dateTo
 
-        return <div className='flex-row' >
+        return <div className='modal-flex-row' >
 
-            <div className='flex-column' style={{ margin: '5px 0', padding: '0 5px 0 0', borderRight: '1px solid #ddd' }} >
+            <div className='modal-flex-column' style={{ margin: '5px 0', padding: '0 5px 0 0', borderRight: '1px solid #ddd', width: 300, height: 350 }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
                 <Calendar isActive date={dateFrom} onSelect={this._setDateFrom} />
             </div>
-            <div className='flex-column' style={{ margin: 5, borderRight: 1 }} >
+            <div className='modal-flex-column' style={{ margin: 5, borderRight: 1 }} >
                 <div style={{ margin: '5px 0', }}>Конец периода:</div>
                 <Calendar isActive date={dateTo} onSelect={this._setDateTo} />
             </div>
         </div>
     }
     
-    _selectPeriodWithForm = () => <div className='flex-column' >
+    _selectPeriodWithForm = () => <div className='modal-flex-column' >
         <YearField onSpinButtons outlined spinButtons onChangeObject={this._onChangeObject} name='year' type='number' value={this.state.dateTo} label='Год' />
         <QuarterField onSpinButtons outlined onChangeObject={this._onChangeObject} name='quarter' value={this.state.dateTo} label='Квартал' />
         <MonthField onSpinButtons onCalendarButton outlined onChangeObject={this._onChangeObject} name='month' value={this.state.dateTo} label='Месяц' />
@@ -104,11 +104,11 @@ class SelectPeriodCore extends Component {
         return (
             <div style={{
                 display: (isActive) ? 'block' : 'none',
-                width: 496
+               // width: 496
             }}>
                 <div style={{ margin: '5px 0', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
-                <div style={{ justifyContent: 'flex-end' }} className='flex-row' >
+                <div style={{ justifyContent: 'flex-end' }} className='modal-flex-row' >
                     <a className='waves-effect waves-teal btn-flat my-btn-flat' onClick={() => this.setState({ isActive: false })} >Закрыть</a>
                     <a className='waves-effect waves-teal btn-flat my-btn-flat' onClick={this._onAccepted} >Принять</a>
 

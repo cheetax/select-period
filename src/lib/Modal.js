@@ -1,10 +1,19 @@
 import React from 'react'
 import SelectPeriodCore from './select-period-core';
 import './Modal.css'
+import './select-period-core.css';
 
 const ClassModal = ({ openModal }) => openModal ? 'modal-dialog-button active' : 'modal-dialog-button'
 
-const ClassModalOverlay = ({ openModal }) => openModal ? 'modal-dialog-overlay active' : 'modal-dialog-overlay'
+const ClassModalOverlay = ({ openModal }) => '' //openModal ? 'modal-dialog-overlay active' : 'modal-dialog-overlay'
+
+const _ref = (elem) => {
+    let {
+        clientWidth,
+        clientHeight,
+    } = elem
+    console.log(elem)
+}
 
 export const Modal = (props) => {
     const { openModal } = props;
@@ -21,7 +30,7 @@ export const Modal = (props) => {
         }}
             onClick={props.onClick} /> : null}
         <div className={ClassModalOverlay({ openModal })} >
-            <div className={ClassModal({ openModal })} >
+            <div ref={_ref} className={ClassModal({ openModal })} >
                 <SelectPeriodCore {...props} />
             </div>
         </div>

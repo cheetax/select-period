@@ -1,10 +1,8 @@
 var path = require('path');
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var srcDir = path.resolve(__dirname, './dev-example');
 module.exports = {
-  entry: './src/index.js',
-  context: srcDir,
+  entry: './src/lib/index.js',
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2'

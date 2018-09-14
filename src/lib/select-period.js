@@ -2,6 +2,7 @@
 import { Modal } from './Modal'
 import React, { Component } from 'react';
 
+
 class SelectPeriod extends Component {
 
     constructor(props) {
@@ -13,6 +14,14 @@ class SelectPeriod extends Component {
 
     componentWillReceiveProps(nextProps) {
         nextProps.isActive !== undefined && this.setState({ openModalCalendar: !!nextProps.isActive })
+    }
+
+    _ref = (elem) => {
+        let {
+            clientWidth,
+            clientHeight,
+        } = elem
+        console.log(elem)
     }
 
     
@@ -33,7 +42,7 @@ class SelectPeriod extends Component {
     </div>
 
     render() {
-        return <div style={{ display: 'flex', justifyContent: 'center' }}>{this._ModalPeriod()}</div>
+        return <div ref={this._ref} style={{ display: 'flex', justifyContent: 'center' }}>{this._ModalPeriod()}</div>
     }
 }
 
