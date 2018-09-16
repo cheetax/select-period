@@ -18,7 +18,7 @@ const _ref = (elem) => {
 export const Modal = (props) => {
     const { openModal } = props;
     return <div>
-        {(openModal) ? <div style={{
+        {/* {(openModal) ? <div style={{
             position: 'fixed',
             background: 'black',
             opacity: '0',
@@ -28,7 +28,7 @@ export const Modal = (props) => {
             height: '100%',
             zIndex: '999',
         }}
-            onClick={props.onClick} /> : null}
+            onClick={props.onClick} /> : null} */}
         <div className={ClassModalOverlay({ openModal })} >
             <div ref={_ref} className={ClassModal({ openModal })} >
                 <SelectPeriodCore {...props} />
