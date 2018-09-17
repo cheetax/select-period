@@ -465,7 +465,7 @@ a.btn-select {
     transform: translateY(-100%);
     transition: .3s;
 }
-.modal-dialog-button {
+.modal-calendar-button {
     position: absolute;
     top: 100%;
     right: 0;
@@ -482,13 +482,13 @@ a.btn-select {
     transition: 0.5s;
 }
 
-.modal-dialog-button.active, .modal-dialog-flex.active, .modal-dialog-overlay.active {
+.modal-calendar-button.active, .modal-calendar-flex.active, .modal-calendar-overlay.active {
     opacity: 1;
     transform: scale(1);    
     transition: .5s;
 }
 
-.modal-dialog-flex {
+.modal-calendar-flex {
     position: absolute;
     opacity: .5;
     background: #FFFFFF;
@@ -503,7 +503,7 @@ a.btn-select {
     transition: 0.5s;
 }
 
-.modal-dialog-overlay {
+.modal-calendar-overlay {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -519,6 +519,17 @@ a.btn-select {
 }
 
 
+.modal-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .modal-dialog-button {
     position: absolute;
     top: 100%;
@@ -527,12 +538,11 @@ a.btn-select {
     background: #FFFFFF;
     overflow: hidden;
     transform: scale(0);
-    transform-origin: right top;
     padding: 8px 0px;
     margin: 0 10px;
     border-radius: 4px;
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
-    z-index: 1003;
+    z-index: 900;
     transition: 0.5s;
 }
 

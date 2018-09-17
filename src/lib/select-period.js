@@ -20,14 +20,25 @@ class SelectPeriod extends Component {
         let {
             clientWidth,
             clientHeight,
-        } = elem
-        console.log(elem)
+            offsetLeft,
+            offsetTop,
+            offsetHeight,
+            offsetWidth,
+        } = elem;
+        let {
+            innerWidth,
+            innerHeight,
+        } = window;
+        this.setState({
+            elemSize: { clientWidth, clientHeight, offsetLeft, offsetTop, offsetHeight, offsetWidth, innerHeight, innerWidth }
+        })
     }
 
-    
-    _ModalPeriod = () => <div style={{ position: 'relative', color: 'initial' }} >
+
+    _ModalPeriod = () => <div ref={this._ref} style={{ position: 'relative', color: 'initial' }} >
         <Modal
-            {...this.props}
+            {...this.props}            
+            elemSize = {this.state.elemSize}
             openModal={this.state.openModalCalendar}
             onSelect={(date) => {
                 if (!this.props.isActive) {
@@ -42,7 +53,7 @@ class SelectPeriod extends Component {
     </div>
 
     render() {
-        return <div ref={this._ref} style={{ display: 'flex', justifyContent: 'center' }}>{this._ModalPeriod()}</div>
+        return <div style={{ display: 'flex', justifyContent: 'center' }}>{this._ModalPeriod()}</div>
     }
 }
 

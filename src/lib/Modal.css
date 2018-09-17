@@ -17,7 +17,7 @@
     background: #FFFFFF;
     overflow: hidden;
     transform: scale(0);
-    transform-origin: right top;
+    transform-origin: left top;
     padding: 8px 0px;
     margin: 0 10px;
     border-radius: 4px;
