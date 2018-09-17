@@ -9,22 +9,23 @@ const ClassModalOverlay = ({ openModal }) => '' //openModal ? 'modal-dialog-over
 
 const positiveNum = (num) => num > 0 ? 0 : - num
 
-const _ref = (elem) => {
-    if (elem) {
-        console.log(elem)
-        let {
-            clientWidth,
-            clientHeight,
-        } = elem;
-        if (this.elemSize) {
-            var _left = positiveNum(this.elemSize.innerWidth - this.elemSize.offsetLeft - clientWidth)
-        }
-        console.log(this.elemSize)
-    }
-}
+
 
 export const Modal = (props) => {
     const { openModal } = props;
+
+    const _ref = (elem) => {
+        if (elem) {
+            console.log(elem)
+            let {
+                clientWidth,
+                clientHeight,
+            } = elem;
+            let _left = (props.elemSize)  && positiveNum(props.elemSize.innerWidth - props.elemSize.offsetLeft - clientWidth)
+            console.log(_left)
+        }
+    }
+    
     return <div>
         {/* {(openModal) ? <div style={{
             position: 'fixed',
@@ -38,7 +39,7 @@ export const Modal = (props) => {
         }}
             onClick={props.onClick} /> : null} */}
         <div className={ClassModalOverlay({ openModal })} >
-            <div ref={_ref.bind(props)} style={{ transformTrigin: 'left top' }} className={ClassModal({ openModal })} >
+            <div ref={_ref} style={{ transformTrigin: 'left top' }} className={ClassModal({ openModal })} >
                 <SelectPeriodCore {...props} />
             </div>
         </div>
