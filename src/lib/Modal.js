@@ -21,11 +21,11 @@ export const Modal = (props) => {
                 clientWidth,
                 clientHeight,
             } = elem;
-            let _left = (props.elemSize)  && positiveNum(props.elemSize.innerWidth - props.elemSize.offsetLeft - clientWidth)
+            let _left = (props.elemSize)  && positiveNum(props.elemSize.innerWidth - props.elemSize.offsetLeft - clientWidth) || 0
             console.log(_left)
         }
     }
-    
+
     return <div>
         {/* {(openModal) ? <div style={{
             position: 'fixed',
