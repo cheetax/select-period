@@ -12,7 +12,7 @@
 .modal-dialog-button {
     position: absolute;
     top: 100%;
-    right: 0;
+    /* right: 0; */
     opacity: .5;
     background: #FFFFFF;
     overflow: hidden;

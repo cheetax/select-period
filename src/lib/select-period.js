@@ -34,9 +34,13 @@ class SelectPeriod extends Component {
         })
     }
 
+    _refModal = (elem) => {
+        console.log(elem)
+    }
+
 
     _ModalPeriod = () => <div ref={this._ref} style={{ position: 'relative', color: 'initial' }} >
-        <Modal
+        <Modal ref = {this._refModal}
             {...this.props}            
             elemSize = {this.state.elemSize}
             openModal={this.state.openModalCalendar}
