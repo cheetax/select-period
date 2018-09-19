@@ -7,7 +7,7 @@ const ClassModal = ({ openModal }) => openModal ? 'modal-dialog-button active' :
 
 const ClassModalOverlay = ({ openModal }) => '' //openModal ? 'modal-dialog-overlay active' : 'modal-dialog-overlay'
 
-const positiveNum = (num) => num > 0 ? 0 : num
+const positiveNum = (num) => num < 0 ? 0 : num
 
 //export const Modal = (props) => {
 export class Modal extends Component {
@@ -26,34 +26,30 @@ export class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(this.state.elem)
-        this.setState()
+        //this.forceUpdate()
     }
 
     componentDidUpdate(prevProps, prevState, snap) {
-        if (!prevState.elem) this.forceUpdate()
-        console.log(this.state.elem)
-    }
-    
-    _style = () => {
+        var elem = this.state.elem.clientWidth;
         var style = this.state.elem && window.getComputedStyle(this.state.elem);
-        var margin = (+style.marginLeft.replace('px','')) + (+style.marginRight.replace('px',''));
-        return { right: (this.props.elemSize) && positiveNum(this.props.elemSize.innerWidth - this.props.elemSize.offsetLeft - this.state.elem.clientWidth - margin) + 'px' || 0 }
+        var margin = style && (+style.marginLeft.replace('px', '')) + (+style.marginRight.replace('px', '')) || 0;
+        //let right = (this.props.elemSize) && positiveNum(this.props.elemSize.innerWidth - this.props.elemSize.offsetLeft - this.state.elem.clientWidth - margin) + 'px' || 0
+        let right = (this.props.elemSize) && positiveNum(this.props.elemSize.offsetLeft - this.state.elem.clientWidth) + 'px' || 0
+        //this.state.margin !== margin && this.setState({ margin })
+        this.state.right !== right && this.setState({ right })
+       // this.state.elem.clientWidth !== elem && this.state({elem: this.state.elem.clientWidth})
     }
+
+    _style = () => {
+        return { left: this.state.right }
+    }
+
     render() {
         const openModal = this.props.openModal
+        console.log(this.state.right)
+        //var right = { right: (this.props.elemSize) && positiveNum(this.props.elemSize.innerWidth - this.props.elemSize.offsetLeft - this.state.elem.clientWidth - this.state.margin) + 'px' || 0 }
+
         return <div>
-            {/* {(openModal) ? <div style={{
-            position: 'fixed',
-            background: 'black',
-            opacity: '0',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            zIndex: '999',
-        }}
-            onClick={props.onClick} /> : null} */}
             <div className={ClassModalOverlay({ openModal })} >
                 <div ref={this._ref} style={this._style()} className={ClassModal({ openModal })} >
                     <SelectPeriodCore {...this.props} />

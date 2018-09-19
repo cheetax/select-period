@@ -10,8 +10,8 @@
 
 
 .modal-dialog-button {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    /* top: 100%; */
     /* right: 0; */
     opacity: .5;
     background: #FFFFFF;
