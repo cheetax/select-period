@@ -50,11 +50,11 @@ class SelectPeriodCore extends Component {
 
         return <div className='modal-flex-row' >
 
-            <div className='modal-flex-column' style={{ margin: '5px 0', padding: '0 5px 0 0', borderRight: '1px solid #ddd', width: 300, height: 500 }} >
+            <div className='modal-flex-column' style={{ margin: '5px', padding: '0 5px 0 0', borderRight: '1px solid #ddd' }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
                 <Calendar isActive date={dateFrom} onSelect={this._setDateFrom} />
             </div>
-            <div className='modal-flex-column' style={{ margin: 5, borderRight: 1 }} >
+            <div className='modal-flex-column' style={{ margin: '5px 5px 5px 0', borderRight: 1 }} >
                 <div style={{ margin: '5px 0', }}>Конец периода:</div>
                 <Calendar isActive date={dateTo} onSelect={this._setDateTo} />
             </div>
