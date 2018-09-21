@@ -50,11 +50,11 @@ class SelectPeriodCore extends Component {
 
         return <div className='modal-flex-row' >
 
-            <div className='modal-flex-column' style={{ margin: '5px', padding: '0 5px 0 0', borderRight: '1px solid #ddd' }} >
+            <div className='modal-flex-column' style={{ margin: '5px', padding: '0 5px 0 0', borderRight: '1px solid #ddd', flex: 'auto' }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
                 <Calendar isActive date={dateFrom} onSelect={this._setDateFrom} />
             </div>
-            <div className='modal-flex-column' style={{ margin: '5px 5px 5px 0', borderRight: 1 }} >
+            <div className='modal-flex-column' style={{ margin: '5px 5px 5px 0', borderRight: 1, flex: 'auto' }} >
                 <div style={{ margin: '5px 0', }}>Конец периода:</div>
                 <Calendar isActive date={dateTo} onSelect={this._setDateTo} />
             </div>
@@ -71,6 +71,7 @@ class SelectPeriodCore extends Component {
 
     _tabs = () =>
         <Tabs
+            style={{flex: 'auto'}}
             defaultTab="one"
             onChange={(tabId) => { console.log(tabId) }}
         >
@@ -80,7 +81,7 @@ class SelectPeriodCore extends Component {
                 {/* <Tab tabFor="three">Tab 3</Tab> */}
             </TabList>
             <TabPanel tabId="one">
-                <div>{this._selectPeriodWithCalendar()}</div>
+                <div style={{height: '100%'}} >{this._selectPeriodWithCalendar()}</div>
             </TabPanel>
             <TabPanel tabId="two">
                 <div>{this._selectPeriodWithForm()}</div>
@@ -103,12 +104,15 @@ class SelectPeriodCore extends Component {
             dateTo = this.state.dateTo.toLocaleDateString()
         return (
             <div style={{
-                display: (isActive) ? 'block' : 'none',
+                display: (isActive) ? 'flex' : 'none',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '100%'
                // width: 496
             }}>
                 <div style={{ margin: '5px 0', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
-                <div style={{ justifyContent: 'flex-end' }} className='modal-flex-row' >
+                <div style={{ justifyContent: 'flex-end', }} className='modal-flex-row' >
                     <a className='waves-effect waves-teal btn-flat my-btn-flat' onClick={() => this.setState({ isActive: false })} >Закрыть</a>
                     <a className='waves-effect waves-teal btn-flat my-btn-flat' onClick={this._onAccepted} >Принять</a>
 
