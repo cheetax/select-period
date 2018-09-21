@@ -71,7 +71,12 @@ class SelectPeriodCore extends Component {
 
     _tabs = () =>
         <Tabs
-            style={{flex: 'auto'}}
+            style={{
+                flex: 'auto',
+                display: 'flex',
+                flexDirection: 'column'
+                
+            }}
             defaultTab="one"
             onChange={(tabId) => { console.log(tabId) }}
         >
@@ -80,8 +85,8 @@ class SelectPeriodCore extends Component {
                 <Tab tabFor="two">Период</Tab>
                 {/* <Tab tabFor="three">Tab 3</Tab> */}
             </TabList>
-            <TabPanel tabId="one">
-                <div style={{height: '100%'}} >{this._selectPeriodWithCalendar()}</div>
+            <TabPanel style={{flex: 'auto', display: 'flex'}}  tabId="one">
+                <div style={{flex: 'auto'}} >{this._selectPeriodWithCalendar()}</div>
             </TabPanel>
             <TabPanel tabId="two">
                 <div>{this._selectPeriodWithForm()}</div>
