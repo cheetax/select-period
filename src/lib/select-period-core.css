@@ -8,6 +8,10 @@
     position: relative;
 }
 
+.rwt__tabpanel[aria-expanded='true'] {
+    display: flex;
+}
+
 .input-edit {
     display: flex;
     flex-direction: column;
@@ -16,3 +20,7 @@
     margin: 8px 0px 0 0px ;
     font-weight: normal;
 }
+
+/* div {
+    display: flex;
+} */

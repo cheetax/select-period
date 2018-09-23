@@ -70,46 +70,39 @@ class SelectPeriodCore extends Component {
 
 
     _tabs = () =>
-        <div
+        <Tabs
             style={{
                 flex: 'auto',
                 display: 'flex',
                 flexDirection: 'column'
 
-            }}>
-            <Tabs
-                style={{ flex: 'auto' }}
-                defaultTab="one"
-                onChange={(tabId) => { console.log(tabId) }}
-            >
-                <TabList>
-                    <Tab tabFor="one">Интервал</Tab>
-                    <Tab tabFor="two">Период</Tab>
-                    {/* <Tab tabFor="three">Tab 3</Tab> */}
-                </TabList>
-                <div
+            }}
+            defaultTab="one"
+            onChange={(tabId) => { console.log(tabId) }}
+        >
+            <TabList>
+                <Tab tabFor="one">Интервал</Tab>
+                <Tab tabFor="two">Период</Tab>
+                {/* <Tab tabFor="three">Tab 3</Tab> */}
+            </TabList>
+            
+                <TabPanel
                     style={{
                         flex: 'auto',
-                        display: 'flex',
-                        flexDirection: 'column'
+                        //display: 'flex'
+                    }}
+                    tabId="one">
+                    <div style={{ flex: 'auto' }} >{this._selectPeriodWithCalendar()}</div>
+                </TabPanel>
+                <TabPanel tabId="two">
+                    <div style={{flex: 'auto'}}>{this._selectPeriodWithForm()}</div>
 
-                    }}>
-                    <TabPanel
-                        style={{ flex: 'auto', display: 'flex' }}
-                        tabId="one">
-                        <div style={{ flex: 'auto' }} >{this._selectPeriodWithCalendar()}</div>
-                    </TabPanel>
-                    <TabPanel tabId="two">
-                        <div>{this._selectPeriodWithForm()}</div>
-
-                    </TabPanel>
-                </div>
-                {/* <TabPanel tabId="three">
+                </TabPanel>
+            {/* <TabPanel tabId="three">
                 <p>Tab 3 content</p>
             </TabPanel> */}
-            </Tabs>
+        </Tabs>
 
-        </div>
 
     _onAccepted = () => {
         this.setState({ isActive: false })
