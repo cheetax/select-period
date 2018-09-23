@@ -48,7 +48,7 @@ class SelectPeriodCore extends Component {
         const dateFrom = this.state.dateFrom,
             dateTo = this.state.dateTo
 
-        return <div className='modal-flex-row' >
+        return <div style={{ height: '100%' }} className='modal-flex-row' >
 
             <div className='modal-flex-column' style={{ margin: '5px', padding: '0 5px 0 0', borderRight: '1px solid #ddd', flex: 'auto' }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
@@ -60,7 +60,7 @@ class SelectPeriodCore extends Component {
             </div>
         </div>
     }
-    
+
     _selectPeriodWithForm = () => <div className='modal-flex-column' >
         <YearField onSpinButtons outlined spinButtons onChangeObject={this._onChangeObject} name='year' type='number' value={this.state.dateTo} label='Год' />
         <QuarterField onSpinButtons outlined onChangeObject={this._onChangeObject} name='quarter' value={this.state.dateTo} label='Квартал' />
@@ -70,32 +70,46 @@ class SelectPeriodCore extends Component {
 
 
     _tabs = () =>
-        <Tabs
+        <div
             style={{
                 flex: 'auto',
                 display: 'flex',
                 flexDirection: 'column'
-                
-            }}
-            defaultTab="one"
-            onChange={(tabId) => { console.log(tabId) }}
-        >
-            <TabList>
-                <Tab tabFor="one">Интервал</Tab>
-                <Tab tabFor="two">Период</Tab>
-                {/* <Tab tabFor="three">Tab 3</Tab> */}
-            </TabList>
-            <TabPanel style={{flex: 'auto', display: 'flex'}}  tabId="one">
-                <div style={{flex: 'auto'}} >{this._selectPeriodWithCalendar()}</div>
-            </TabPanel>
-            <TabPanel tabId="two">
-                <div>{this._selectPeriodWithForm()}</div>
 
-            </TabPanel>
-            {/* <TabPanel tabId="three">
+            }}>
+            <Tabs
+                style={{ flex: 'auto' }}
+                defaultTab="one"
+                onChange={(tabId) => { console.log(tabId) }}
+            >
+                <TabList>
+                    <Tab tabFor="one">Интервал</Tab>
+                    <Tab tabFor="two">Период</Tab>
+                    {/* <Tab tabFor="three">Tab 3</Tab> */}
+                </TabList>
+                <div
+                    style={{
+                        flex: 'auto',
+                        display: 'flex',
+                        flexDirection: 'column'
+
+                    }}>
+                    <TabPanel
+                        style={{ flex: 'auto', display: 'flex' }}
+                        tabId="one">
+                        <div style={{ flex: 'auto' }} >{this._selectPeriodWithCalendar()}</div>
+                    </TabPanel>
+                    <TabPanel tabId="two">
+                        <div>{this._selectPeriodWithForm()}</div>
+
+                    </TabPanel>
+                </div>
+                {/* <TabPanel tabId="three">
                 <p>Tab 3 content</p>
             </TabPanel> */}
-        </Tabs>
+            </Tabs>
+
+        </div>
 
     _onAccepted = () => {
         this.setState({ isActive: false })
@@ -113,9 +127,9 @@ class SelectPeriodCore extends Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 height: '100%'
-               // width: 496
+                // width: 496
             }}>
-                <div style={{ margin: '5px 0', }}>Установлен период: с {dateFrom} по {dateTo}</div>
+                <div style={{ margin: '5px', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
                 <div style={{ justifyContent: 'flex-end', }} className='modal-flex-row' >
                     <a className='waves-effect waves-teal btn-flat my-btn-flat' onClick={() => this.setState({ isActive: false })} >Закрыть</a>
