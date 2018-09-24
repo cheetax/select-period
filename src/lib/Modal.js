@@ -34,8 +34,8 @@ export class Modal extends Component {
     _style = () => {
         return {
             left: this.state.right,
-            width: '700px',
-            height: '600px'
+          //  width: '560px',
+          //  height: '600px'
         }
     }
 

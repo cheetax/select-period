@@ -50,11 +50,20 @@ class SelectPeriodCore extends Component {
 
         return <div style={{ height: '100%' }} className='modal-flex-row' >
 
-            <div className='modal-flex-column' style={{ margin: '5px', padding: '0 5px 0 0', borderRight: '1px solid #ddd', flex: 'auto' }} >
+            <div className='modal-flex-column' style={{
+                margin: '5px',
+                padding: '0 5px 0 0',
+                borderRight: '1px solid #ddd',
+                flex: 'auto'
+            }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
                 <Calendar isActive date={dateFrom} onSelect={this._setDateFrom} />
             </div>
-            <div className='modal-flex-column' style={{ margin: '5px 5px 5px 0', borderRight: 1, flex: 'auto' }} >
+            <div className='modal-flex-column' style={{
+                margin: '5px 5px 5px 0',
+               borderRight: 1,
+                flex: 'auto'
+            }} >
                 <div style={{ margin: '5px 0', }}>Конец периода:</div>
                 <Calendar isActive date={dateTo} onSelect={this._setDateTo} />
             </div>
@@ -92,7 +101,12 @@ class SelectPeriodCore extends Component {
                         //display: 'flex'
                     }}
                     tabId="one">
-                    <div style={{ flex: 'auto' }} >{this._selectPeriodWithCalendar()}</div>
+                <div
+                    style={{
+                 //       flex: 'auto',
+                        width: '100%'
+                    }}
+                >{this._selectPeriodWithCalendar()}</div>
                 </TabPanel>
                 <TabPanel tabId="two">
                     <div style={{flex: 'auto'}}>{this._selectPeriodWithForm()}</div>
