@@ -49,8 +49,9 @@ class SelectPeriodCore extends Component {
             dateTo = this.state.dateTo
 
         return <div style={{ height: '100%' }} className='modal-flex-row' >
+            <Calendar isModal isButtonActive date={this.state.date} onSelect={this._onSelectCalendar} />
 
-            <div className='modal-flex-column' style={{
+            {/* <div className='modal-flex-column' style={{
                 margin: '5px',
                 padding: '0 5px 0 0',
                 borderRight: '1px solid #ddd',
@@ -61,12 +62,12 @@ class SelectPeriodCore extends Component {
             </div>
             <div className='modal-flex-column' style={{
                 margin: '5px 5px 5px 0',
-               borderRight: 1,
+                borderRight: 1,
                 flex: 'auto'
             }} >
                 <div style={{ margin: '5px 0', }}>Конец периода:</div>
                 <Calendar isActive date={dateTo} onSelect={this._setDateTo} />
-            </div>
+            </div> */}
         </div>
     }
 
@@ -94,24 +95,24 @@ class SelectPeriodCore extends Component {
                 <Tab tabFor="two">Период</Tab>
                 {/* <Tab tabFor="three">Tab 3</Tab> */}
             </TabList>
-            
-                <TabPanel
-                    style={{
-                        flex: 'auto',
-                        //display: 'flex'
-                    }}
-                    tabId="one">
+
+            <TabPanel
+                style={{
+                    flex: 'auto',
+                    //display: 'flex'
+                }}
+                tabId="one">
                 <div
                     style={{
-                 //       flex: 'auto',
+                        //       flex: 'auto',
                         width: '100%'
                     }}
                 >{this._selectPeriodWithCalendar()}</div>
-                </TabPanel>
-                <TabPanel tabId="two">
-                    <div style={{flex: 'auto'}}>{this._selectPeriodWithForm()}</div>
+            </TabPanel>
+            <TabPanel tabId="two">
+                <div style={{ flex: 'auto' }}>{this._selectPeriodWithForm()}</div>
 
-                </TabPanel>
+            </TabPanel>
             {/* <TabPanel tabId="three">
                 <p>Tab 3 content</p>
             </TabPanel> */}
