@@ -43,16 +43,8 @@ class SelectPeriod extends Component {
         <Modal ref = {this._refModal}
             {...this.props}            
             elemSize = {this.state.elemSize}
-            openModal={this.state.openModalCalendar}
-            onSelect={(date) => {
-                if (!this.props.isActive) {
-                    this.setState({ openModalCalendar: false })
-                }
-                this.props.onSelect && this.props.onSelect(date)
-            }}
-            onClick={() => {
-                !this.props.isActive && this.setState({ openModalCalendar: false })
-            }}
+            openModal={this.props.isActive}
+            onSelect={(period) => this.props.onSelect && this.props.onSelect(period)}
         />
     </div>
 

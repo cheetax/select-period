@@ -119,9 +119,8 @@ class SelectPeriodCore extends Component {
 
     _onAccepted = () => {
         this.setState({ isActive: false })
-        if (this.props.onAccepted) this.props.onAccepted({ dataFrom: this.state.dataFrom, dataTo: this.state.dataTo })
+        this.props.onAccepted && this.props.onAccepted({ dataFrom: this.state.dataFrom, dataTo: this.state.dataTo })
     }
-
 
     render() {
         const isActive = this.state.isActive;
@@ -133,7 +132,6 @@ class SelectPeriodCore extends Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 height: '100%'
-                // width: 496
             }}>
                 <div style={{ margin: '5px', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
