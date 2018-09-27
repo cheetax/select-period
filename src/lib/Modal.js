@@ -27,15 +27,19 @@ export class Modal extends Component {
 
 
     componentDidUpdate(prevProps, prevState, snap) {
-        let right = (this.props.elemSize) && positiveNum(this.props.elemSize.offsetLeft - this.state.elem.clientWidth) + 'px' || 0
-        this.state.right !== right && this.setState({ right })
+        let props = this.props
+        let left = (props.elemSize) && positiveNum(props.elemSize.offsetLeft - this.state.elem.clientWidth) + 'px' || 0
+        let top = (props.elemSize) && ((props.elemSize.offsetTop < (props.elemSize.innerHeight - this.state.elem.clientHeight)) ? props.elemSize.offsetTop : positiveNum(props.elemSize.innerHeight - this.state.elem.clientHeight)) + 'px' || 0;
+        (this.state.left !== left || this.state.top !== top) && this.setState({ left, top })
     }
 
     _style = () => {
         return {
-            left: this.state.right,
-          //  width: '560px',
-          //  height: '600px'
+            cursor: 'default',
+            left: this.state.left,
+            top: this.state.top,
+            width: '560px',
+            height: '456px'
         }
     }
 
