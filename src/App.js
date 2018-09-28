@@ -21,7 +21,7 @@ class App extends Component {
         <h3>Filled text fields</h3>
         <div className='App-intro' >
           Period
-          <SelectPeriod isActive/>          
+          <SelectPeriod isActive isButtonActive onSelect={(period) => console.log(period)} />          
         </div>        
       </div>
     );

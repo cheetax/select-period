@@ -66,10 +66,10 @@
     background-color: transparent;
     transition: background-color .2s;
     font-weight: bold;
-    margin: 0 8px;
+    margin: 0 8px 0 0;
     font-size: 14px;
     outline: 0;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 2px;
     height: 36px;
     line-height: 36px;
@@ -77,9 +77,18 @@
     text-transform: uppercase;
 }
 
+.modal-btn-accent {
+    border: 1px solid rgb(175, 175, 175);
+   /* border-radius: 2px */
+}
+
 .modal-btn-flat:hover {
     background-color: rgba(0,0,0,0.1);
     box-shadow: none;
+}
+
+.modal-btn-flat:active {
+    background: #4caf50
 }
 
 .modal-waves-effect {

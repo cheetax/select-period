@@ -52,16 +52,16 @@ class SelectPeriodCore extends Component {
             {/* <Calendar isModal isButtonActive date={this.state.date} onSelect={(date) => console.log(date)} /> */}
 
             <div className='modal-flex-column' style={{
-                margin: '5px',
+                //margin: '5px',
                 padding: '0 5px 0 0',
-                borderRight: '1px solid #ddd',
+               // borderRight: '1px solid #ddd',
                 flex: 'auto'
             }} >
                 <div style={{ margin: '5px 0', }} >Начало периода:</div>
                 <Calendar isActive date={dateFrom} onSelect={this._setDateFrom} />
             </div>
             <div className='modal-flex-column' style={{
-                margin: '5px 5px 5px 0',
+             //   margin: '5px 5px 5px 0',
                 borderRight: 1,
                 flex: 'auto'
             }} >
@@ -71,13 +71,12 @@ class SelectPeriodCore extends Component {
         </div>
     }
 
-    _selectPeriodWithForm = () => <div style={{ height: '100%', justifyContent: 'space-between' }} className='modal-flex-column' >
+    _selectPeriodWithForm = () =><div style={{ height: '100%', justifyContent: 'space-between' }} className='modal-flex-column' >
         <YearField onSpinButtons outlined spinButtons onChangeObject={this._onChangeObject} name='year' type='number' value={this.state.dateTo} label='Год' />
         <QuarterField onSpinButtons outlined onChangeObject={this._onChangeObject} name='quarter' value={this.state.dateTo} label='Квартал' />
         <MonthField onSpinButtons onCalendarButton outlined onChangeObject={this._onChangeObject} name='month' value={this.state.dateTo} label='Месяц' />
         <DateField onSpinButtons onCalendarButton outlined onChangeObject={this._onChangeObject} name='date' value={this.state.dateTo} label='Дата' />
     </div>
-
 
     _tabs = () =>
         <Tabs
@@ -119,7 +118,7 @@ class SelectPeriodCore extends Component {
 
     _onAccepted = () => {
         this.setState({ isActive: false })
-        this.props.onAccepted && this.props.onAccepted({ dataFrom: this.state.dataFrom, dataTo: this.state.dataTo })
+        this.props.onSelect && this.props.onSelect({ dataFrom: this.state.dateFrom, dataTo: this.state.dateTo })
     }
 
     render() {
@@ -131,14 +130,14 @@ class SelectPeriodCore extends Component {
                 display: (isActive) ? 'flex' : 'none',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                height: '100%'
+                height: '100%',
+                margin: '0 8px'
             }}>
                 <div style={{ margin: '5px', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
                 <div style={{ justifyContent: 'flex-end', }} className='modal-flex-row' >
                     <a className='modal-waves-effect modal-btn-flat' onClick={() => this.setState({ isActive: false })} >Закрыть</a>
-                    <a className='modal-waves-effect modal-btn-flat' onClick={this._onAccepted} >Принять</a>
-
+                    <a className='modal-waves-effect modal-btn-flat modal-btn-accent' onClick={this._onAccepted} >Принять</a>
                 </div>
             </div>
         );
