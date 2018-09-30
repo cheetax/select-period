@@ -39,7 +39,7 @@ export class Modal extends Component {
             left: this.state.left,
             top: this.state.top,
             width: '560px',
-            height: '456px'
+            height: '472px'
         }
     }
 
