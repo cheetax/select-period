@@ -2,8 +2,8 @@
 import { Modal } from './Modal'
 import React, { Component } from 'react';
 import { SvgDateRange } from './Svg'
-import { BtnPeriod } from './BtnSpin'
-import { NumberField } from 'material-inputfield';
+//import { BtnPeriod } from './BtnSpin'
+import { NumberField, BtnSpin } from 'material-inputfield';
 
 class SelectPeriod extends Component {
 
@@ -67,15 +67,15 @@ class SelectPeriod extends Component {
         })
     }
 
-    _btnCalendar = () => <div>
-        {this.props.isButtonActive && <BtnPeriod onClick={this._btnCalendarOnClick}
-        ><SvgDateRange /></BtnPeriod>}
-        {this._ModalPeriod()}
-    </div>
+    // _btnCalendar = () => <div>
+    //     {this.props.isButtonActive && <BtnPeriod onClick={this._btnCalendarOnClick}
+    //     ><SvgDateRange /></BtnPeriod>}
+    //     {this._ModalPeriod()}
+    // </div>
 
     _renderSpinButton = () => <div>
-        {this.props.isButtonActive && <BtnPeriod onClick={this._btnCalendarOnClick}
-        ><SvgDateRange /></BtnPeriod>}
+        {this.props.isButtonActive && <BtnSpin onClick={this._btnCalendarOnClick}
+        ><SvgDateRange /></BtnSpin>}
         {this._ModalPeriod()}
     </div>
 
