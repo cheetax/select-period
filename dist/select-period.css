@@ -206,7 +206,7 @@ input.ch-input.outlined {
     left: 0;
     font-size: 14px;
     font-weight: 400;
-    transition: .3s;
+    transition: .3s, margin 0s;
 }
 
 .ch-label:not(.outlined).active {
@@ -222,7 +222,7 @@ input.ch-input.outlined {
     font-size: 12px;
     transform: translateY(-26px) ;
     transition-property: transform, font-size, color;
-    transition: .3s, color 0s;
+    transition: .3s, color 0s, margin 0s;
 }
 
 .ch-label-outlined-cont {
@@ -238,19 +238,18 @@ input.ch-input.outlined {
 .ch-label.outlined:not(.focus).active {    
     font-size: 12px;
     transform: translateY(-26px) ;
-    transition: transform, font-size, margin .3s
+    transition: .3s, margin 0s;
 }
 
 .ch-field.outlined.focus, .ch-field.outlined.focus:hover {
-    border: 2px solid;
+    border: 2px solid  #4caf50;
     padding: 0px;
-    border-color: #4caf50;
-    transition: 0.3s;
+    /* transition: 3s; */
 }
 
 .ch-field.outlined:hover, .ch-field.outlined.active:not(.focus):hover {
     border: 1px solid;
-    transition: 0.3s;
+    /* transition: 0.3s; */
 }
 
 .ch-field.focus {
@@ -262,7 +261,7 @@ input.ch-input.outlined {
 .ch-field.outlined.active:not(.focus) {
     border: 1px solid #ddd;
     padding: 1px;
-    transition: 0.3s;
+    /* transition: 3s; */
 }
 
 .ch-label-outlined-top {
@@ -465,7 +464,7 @@ a.btn-select {
     transform: translateY(-100%);
     transition: .3s;
 }
-.modal-calendar-button {
+.modal-dialog-button {
     position: absolute;
     top: 100%;
     right: 0;
@@ -479,70 +478,6 @@ a.btn-select {
     border-radius: 4px;
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
     z-index: 1003;
-    transition: 0.5s;
-}
-
-.modal-calendar-button.active, .modal-calendar-flex.active, .modal-calendar-overlay.active {
-    opacity: 1;
-    transform: scale(1);    
-    transition: .5s;
-}
-
-.modal-calendar-flex {
-    position: absolute;
-    opacity: .5;
-    background: #FFFFFF;
-    overflow: hidden;
-    transform: scale(0);
-    transform-origin: center;
-    padding: 8px 0px;
-    margin: 0 10px;
-    border-radius: 4px;
-    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
-    z-index: 1003;
-    transition: 0.5s;
-}
-
-.modal-calendar-overlay {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    transform: scale(0);
-    opacity: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    transition: 0.5s;
-}
-
-
-.modal-flex-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.modal-flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.modal-dialog-button {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    opacity: .5;
-    background: #FFFFFF;
-    overflow: hidden;
-    transform: scale(0);
-    padding: 8px 0px;
-    margin: 0 10px;
-    border-radius: 4px;
-    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
-    z-index: 900;
     transition: 0.5s;
 }
 
@@ -581,6 +516,111 @@ a.btn-select {
     z-index: 999;
     transition: 0.5s;
 }
+
+
+.modal-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal-dialog-button {
+    position: fixed;
+    opacity: .5;
+    background: #FFFFFF;
+    /* overflow: hidden; */
+    transform: scale(0);
+    transform-origin: left top;
+    /* padding: 8px 0px; */
+    /* margin: 10px; */
+    border-radius: 4px;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
+    z-index: 900;
+    transition: 0.5s;
+}
+
+.modal-dialog-button.active, .modal-dialog-flex.active, .modal-dialog-overlay.active {
+    opacity: 1;
+    transform: scale(1);    
+    transition: .5s;
+}
+
+.modal-dialog-flex {
+    position: absolute;
+    opacity: .5;
+    background: #FFFFFF;
+    /* overflow: hidden; */
+    transform: scale(0);
+    transform-origin: center;
+    /* padding: 8px 0px;
+    margin: 10px; */
+    border-radius: 4px;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);    
+    z-index: 1003;
+    transition: 0.5s;
+}
+
+.modal-dialog-overlay {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    transform: scale(0);
+    opacity: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: 0.5s;
+}
+
+.modal-btn-flat {
+    color: #013a81;
+    box-shadow: none;
+    background-color: transparent;
+    transition: background-color .2s;
+    font-weight: bold;
+    margin: 0 8px 0 0;
+    font-size: 14px;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+}
+
+.modal-btn-accent {
+    border: 1px solid rgb(175, 175, 175);
+   /* border-radius: 2px */
+}
+
+.modal-btn-flat:hover {
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: none;
+}
+
+.modal-btn-flat:active {
+    background: #4caf50
+}
+
+.modal-waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    transition: .3s ease-out;
+}
 .rwt__tablist:not([aria-orientation="vertical"]) .rwt__tab[aria-selected="true"]::after {
     
     border-bottom: 3px solid #00b259;
@@ -591,6 +631,10 @@ a.btn-select {
     position: relative;
 }
 
+.rwt__tabpanel[aria-expanded='true'] {
+    display: flex;
+}
+
 .input-edit {
     display: flex;
     flex-direction: column;
@@ -599,3 +643,7 @@ a.btn-select {
     margin: 8px 0px 0 0px ;
     font-weight: normal;
 }
+
+/* div {
+    display: flex;
+} */

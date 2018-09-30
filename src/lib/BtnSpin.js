@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BtnCalendar = ({ onClick, onFocus, children }) => <div className='btn-spin browser-default'
+const BtnPeriod = ({ onClick, onFocus, children }) => <div className='btn-spin browser-default'
     onClick={onClick ? (event) => onClick(event) : null}>
     <input
         type='url'
@@ -9,5 +9,5 @@ const BtnCalendar = ({ onClick, onFocus, children }) => <div className='btn-spin
     </input>{children}</div>
 
 export {
-    BtnCalendar,
+    BtnPeriod,
 }

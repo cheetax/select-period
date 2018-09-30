@@ -1,16 +1,16 @@
 
 import { Modal } from './Modal'
 import React, { Component } from 'react';
-import { SvgCalendar } from './Svg'
-import { BtnCalendar } from './BtnSpin'
+import { SvgDateRange } from './Svg'
+import { BtnPeriod } from './BtnSpin'
 
 class SelectPeriod extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            // openModal: !!props.isActive || false,
-            openModal: false,
+            openModal: !!props.isActive || false,
+            //openModal: false,
         }
     }
 
@@ -47,13 +47,16 @@ class SelectPeriod extends Component {
         this.props.onSelect && this.props.onSelect(period)
     }
 
+    _onClose = () => this.setState({ openModal: !this.state.openModal })
+
 
     _ModalPeriod = () => this.state.openModal && <div ref={this._ref} style={{ position: 'relative', color: 'initial' }} >
         <Modal ref={this._refModal}
             {...this.props}
             elemSize={this.state.elemSize}
-            openModal={this.props.isActive}
+            openModal={this.state.openModal}
             onSelect={this._onSelect}
+            onClose={this._onClose}
         />
     </div>
 
@@ -63,10 +66,10 @@ class SelectPeriod extends Component {
         })
     }
 
-    _btnCalendar = () => <div >
+    _btnCalendar = () => <div>        
+        {this.props.isButtonActive && <BtnPeriod onClick={this._btnCalendarOnClick}
+        ><SvgDateRange/></BtnPeriod>}
         {this._ModalPeriod()}
-        {this.props.isButtonActive && <div onClick={this._btnCalendarOnClick}
-        >Период</div>}
     </div>
 
     render() {
