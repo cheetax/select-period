@@ -2,7 +2,6 @@
 import { Modal } from './Modal'
 import React, { Component } from 'react';
 import { SvgDateRange } from './Svg'
-//import { BtnPeriod } from './BtnSpin'
 import { NumberField, BtnSpin } from 'material-inputfield';
 
 class SelectPeriod extends Component {
@@ -21,14 +20,28 @@ class SelectPeriod extends Component {
 
     _ref = (elem) => {
         if (!!elem) {
-            let {
-                clientWidth,
-                clientHeight,
-                offsetLeft,
-                offsetTop,
-                offsetHeight,
-                offsetWidth,
-            } = elem;
+            if (elem.offsetParent.offsetParent) {
+                var {
+                    clientWidth,
+                    clientHeight,
+                    offsetLeft,
+                    offsetTop,
+                    offsetHeight,
+                    offsetWidth,
+                } = elem.offsetParent;
+                offsetTop += elem.offsetTop
+                offsetLeft += elem.offsetLeft
+            }
+            else {
+                var {
+                    clientWidth,
+                    clientHeight,
+                    offsetLeft,
+                    offsetTop,
+                    offsetHeight,
+                    offsetWidth,
+                } = elem;
+            }
             let {
                 innerWidth,
                 innerHeight,
@@ -67,12 +80,6 @@ class SelectPeriod extends Component {
         })
     }
 
-    // _btnCalendar = () => <div>
-    //     {this.props.isButtonActive && <BtnPeriod onClick={this._btnCalendarOnClick}
-    //     ><SvgDateRange /></BtnPeriod>}
-    //     {this._ModalPeriod()}
-    // </div>
-
     _renderSpinButton = () => <div>
         {this.props.isButtonActive && <BtnSpin onClick={this._btnCalendarOnClick}
         ><SvgDateRange /></BtnSpin>}
@@ -81,7 +88,11 @@ class SelectPeriod extends Component {
 
     render() {
         return <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <NumberField outlined onSpinButtons name='period' label='Период' extSpinButton={this._renderSpinButton} />
+
+            {this.props.isField ?
+                <NumberField outlined onSpinButtons name='period' label='Период' extSpinButton={this._renderSpinButton} /> :
+                this._renderSpinButton()
+            }
         </div>
     }
 }

@@ -27,10 +27,12 @@ export class Modal extends Component {
 
 
     componentDidUpdate(prevProps, prevState, snap) {
-        let props = this.props
-        let left = (props.elemSize) && positiveNum(props.elemSize.offsetLeft - this.state.elem.clientWidth) + 'px' || 0
-        let top = (props.elemSize) && ((props.elemSize.offsetTop < (props.elemSize.innerHeight - this.state.elem.clientHeight)) ? props.elemSize.offsetTop : positiveNum(props.elemSize.innerHeight - this.state.elem.clientHeight)) + 'px' || 0;
-        (this.state.left !== left || this.state.top !== top) && this.setState({ left, top })
+        if (this.state.elem) {
+            let props = this.props
+            let left = (props.elemSize) && positiveNum(props.elemSize.offsetLeft - this.state.elem.clientWidth) + 'px' || 0
+            let top = (props.elemSize) && ((props.elemSize.offsetTop < (props.elemSize.innerHeight - this.state.elem.clientHeight)) ? props.elemSize.offsetTop : positiveNum(props.elemSize.innerHeight - this.state.elem.clientHeight)) + 'px' || 0;
+            (this.state.left !== left || this.state.top !== top) && this.setState({ left, top })
+        }
     }
 
     _style = () => {
@@ -39,18 +41,18 @@ export class Modal extends Component {
             left: this.state.left,
             top: this.state.top,
             width: '560px',
-            height: '472px'
+            height: '495px'
         }
     }
 
     render() {
         const openModal = this.props.openModal
         return <div>
-            <div className={ClassModalOverlay({ openModal })} >
+            {this.props.elemSize && <div className={ClassModalOverlay({ openModal })} >
                 <div ref={this._ref} style={this._style()} className={ClassModal({ openModal })} >
                     <SelectPeriodCore {...this.props} />
                 </div>
-            </div>
+            </div>}
 
         </div>
     }

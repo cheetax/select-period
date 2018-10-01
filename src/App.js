@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+//    console.log(this.state)
     return (
       <div className="App">
         <header className="App-header">
@@ -22,8 +22,7 @@ class App extends Component {
         </header> 
         <h3>Filled text fields</h3>
         <div className='App-intro' >
-          Period
-          <SelectPeriod isButtonActive dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} onSelect={(period) => this.setState({...period})} />          
+          <SelectPeriod isField isButtonActive dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} onSelect={(period) => this.setState({...period})} />          
         </div>        
       </div>
     );

@@ -123,7 +123,7 @@ class SelectPeriodCore extends Component {
             }}>
                 <div style={{ margin: '5px', }}>Установлен период: с {dateFrom} по {dateTo}</div>
                 {this._tabs()}
-                <div style={{ justifyContent: 'flex-end', }} className='modal-flex-row' >
+                <div style={{ justifyContent: 'flex-end', margin: '24px 0 8px 0' }} className='modal-flex-row' >
                     <a className='modal-waves-effect modal-btn-flat' onClick={() => this.props.onClose && this.props.onClose()} >Закрыть</a>
                     <a className='modal-waves-effect modal-btn-flat modal-btn-accent' onClick={this._onAccepted} >Принять</a>
                 </div>
