@@ -2,14 +2,17 @@
 import { Modal } from './Modal'
 import React, { Component } from 'react';
 import { SvgDateRange } from './Svg'
-import { NumberField, BtnSpin } from 'material-inputfield';
+import { PeriodField, BtnSpin } from 'material-inputfield';
 
 class SelectPeriod extends Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
             openModal: !!props.isActive || false,
+            dateFrom: props.dateFrom || new Date(),
+            dateTo: props.dateTo || new Date(),
             //openModal: false,
         }
     }
@@ -57,7 +60,8 @@ class SelectPeriod extends Component {
     }
 
     _onSelect = (period) => {
-        this.setState({ openModal: !this.state.openModal })
+        console.log(period)
+        this.setState({ ...period, openModal: !this.state.openModal,  })
         this.props.onSelect && this.props.onSelect(period)
     }
 
@@ -90,7 +94,7 @@ class SelectPeriod extends Component {
         return <div style={{ display: 'flex', justifyContent: 'center' }}>
 
             {this.props.isField ?
-                <NumberField outlined onSpinButtons name='period' label='Период' extSpinButton={this._renderSpinButton} /> :
+                <PeriodField outlined onSpinButtons name='period' label='Период' dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} extSpinButton={this._renderSpinButton} /> :
                 this._renderSpinButton()
             }
         </div>
