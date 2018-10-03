@@ -25,7 +25,6 @@ export class Modal extends Component {
         this.setState({ elem })
     }
 
-
     componentDidUpdate(prevProps, prevState, snap) {
         if (this.state.elem) {
             let props = this.props
