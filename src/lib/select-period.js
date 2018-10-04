@@ -71,8 +71,11 @@ class SelectPeriod extends Component {
     _ModalPeriod = () => this.state.openModal && <div ref={this._ref} style={{ position: 'relative', color: 'initial' }} >
         <Modal ref={this._refModal}
             {...this.props}
-            elemSize={this.state.elemSize}
-            openModal={this.state.openModal}
+            {...this.state}
+            // dateFrom={this.state.dateFrom}
+            // dateTo={this.state.dateTo}
+            // elemSize={this.state.elemSize}
+            // openModal={this.state.openModal}
             onSelect={this._onSelect}
             onClose={this._onClose}
         />
@@ -90,11 +93,15 @@ class SelectPeriod extends Component {
         {this._ModalPeriod()}
     </div>
 
+    _onChangeObject = (period) => {
+        this.setState({ ...period })
+    }
+
     render() {
         return <div style={{ display: 'flex', justifyContent: 'center' }}>
 
             {this.props.isField ?
-                <PeriodField outlined onSpinButtons name='period' label='Период' dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} extSpinButton={this._renderSpinButton} /> :
+                <PeriodField outlined onSpinButtons name='period' label='Период' onChangeObject={this._onChangeObject} dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} extSpinButton={this._renderSpinButton} /> :
                 this._renderSpinButton()
             }
         </div>
