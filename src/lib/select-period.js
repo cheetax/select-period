@@ -64,7 +64,6 @@ class SelectPeriod extends Component {
     }
 
     _onSelect = (period) => {
-        console.log(period)
         this.setState({ ...period, openModal: !this.state.openModal,  })
         this.props.onSelect && this.props.onSelect(period)
     }
