@@ -19,6 +19,10 @@ class SelectPeriod extends Component {
 
     componentWillReceiveProps(nextProps) {
         nextProps.isActive !== undefined && this.setState({ openModal: !!nextProps.isActive })
+        (nextProps.dateFrom && nextProps.dateTo) && this.setState({
+            dateFrom: nextProps.dateFrom,
+            dateTo: nextProps.dateTo
+        })
     }
 
     _ref = (elem) => {
@@ -98,7 +102,7 @@ class SelectPeriod extends Component {
     }
 
     render() {
-        return <div style={{ display: 'flex', justifyContent: 'center' }}>
+        return <div style={{ flex: 'auto' }}>
 
             {this.props.isField ?
                 <PeriodField outlined onSpinButtons name='period' label='Период' onChangeObject={this._onChangeObject} dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} extSpinButton={this._renderSpinButton} /> :

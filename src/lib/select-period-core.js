@@ -18,6 +18,13 @@ class SelectPeriodCore extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        (nextProps.dateFrom !== this.props.dateFrom || nextProps.dateTo !== this.props.dateTo) && this.setState({
+            dateFrom: nextProps.dateFrom,
+            dateTo: nextProps.dateTo
+        })
+    }
+
     _onChange = (event) => {
         this.setState({
             ...this.state,
@@ -66,7 +73,7 @@ class SelectPeriodCore extends Component {
         </div>
     }
 
-    _selectPeriodWithForm = () =><div style={{ height: '100%', justifyContent: 'space-between' }} className='modal-flex-column' >
+    _selectPeriodWithForm = () => <div style={{ height: '100%', justifyContent: 'space-between' }} className='modal-flex-column' >
         <YearField onSpinButtons outlined spinButtons onChangeObject={this._onChangeObject} name='year' type='number' value={this.state.dateTo} label='Год' />
         <QuarterField onSpinButtons outlined onChangeObject={this._onChangeObject} name='quarter' value={this.state.dateTo} label='Квартал' />
         <MonthField onSpinButtons onCalendarButton outlined onChangeObject={this._onChangeObject} name='month' value={this.state.dateTo} label='Месяц' />
