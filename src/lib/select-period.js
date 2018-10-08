@@ -75,10 +75,6 @@ class SelectPeriod extends Component {
         <Modal ref={this._refModal}
             {...this.props}
             {...this.state}
-            // dateFrom={this.state.dateFrom}
-            // dateTo={this.state.dateTo}
-            // elemSize={this.state.elemSize}
-            // openModal={this.state.openModal}
             onSelect={this._onSelect}
             onClose={this._onClose}
         />
